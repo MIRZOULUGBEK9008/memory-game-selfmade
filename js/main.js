@@ -1,7 +1,6 @@
-const elLoader = document.querySelector('.js-loader');
+import loader from "./loader.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    elLoader.classList.add('loader-wrapper--none');
-  }, 800);
-});
+// Loader
+window.onload = () => {
+  loader(false);
+};
