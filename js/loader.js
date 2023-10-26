@@ -1,11 +1,19 @@
+import cssClassModifiers from "./css-class-modifiers.js";
 import { elLoader } from "./html-elements.js";
+
+// CSS class modifiers
+const { loaderOpacity, loaderNone } = cssClassModifiers;
 
 const loader = (value = true) => {
   if (value) {
-    setTimeout(() => {
-      elLoader.classList.remove("loader-wrapper--none");
-    }, 800);
-  } else elLoader.classList.add("loader-wrapper--none");
+    elLoader.classList.remove(loaderOpacity, loaderNone);
+    elLoader.classList.remove();
+  } else {
+    elLoader.classList.add(loaderOpacity);
+    elLoader.ontransitionend = () => {
+      elLoader.classList.add(loaderNone);
+    };
+  }
 };
 
 export default loader;

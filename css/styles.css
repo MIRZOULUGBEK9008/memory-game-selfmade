@@ -46,12 +46,16 @@
   height: 100%;
   z-index: 999;
   background-color: var(--pine-tree);
+  opacity: 1;
   transition: opacity var(--transition-base);
 }
 
-.loader-wrapper--none {
+.loader-wrapper--opacity {
   opacity: 0;
-  pointer-events: none;
+}
+
+.loader-wrapper--none {
+  display: none;
 }
 
 .loader {
@@ -63,15 +67,6 @@
   position: relative;
   box-sizing: border-box;
   animation: rotation 2s linear infinite;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /* GLOBAL-STYLES  */
@@ -137,4 +132,14 @@ img {
 /* MAIN-CONTENT  */
 .main-content {
   flex-grow: 1;
+}
+
+/* KEY-FRAMES */
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
