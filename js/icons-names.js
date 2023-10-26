@@ -100,3 +100,5 @@ const iconsNames = [
   "xmarks-lines",
   "image",
 ];
+
+export default iconsNames;
