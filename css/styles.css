@@ -94,7 +94,7 @@ body {
   height: 100%;
   background-color: var(--anti-flash-white);
   color: var(--anti-flash-white);
-  font-family: "Atkinson Hyperlegible", "Arial" sans-serif;
+  font-family: "Atkinson Hyperlegible", "Arial", sans-serif;
   font-size: 4.4rem;
   line-height: normal;
   padding: 0;
