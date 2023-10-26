@@ -27,16 +27,145 @@
     <!-- Title  -->
     <title>Memory game</title>
 
-    <!-- STYLES  -->
+    <!-- Styles  -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <!-- <link rel="stylesheet" href="css/css.min.css"> -->
   </head>
   <body>
-    <!-- LOADER  -->
+    <!-- Loader  -->
     <div class="loader-wrapper" id="loader">
       <span class="loader"></span>
     </div>
+
+    <!-- Section of Game settings -->
+    <section class="section-game-settings-modal" id="gameSettingsModal">
+      <div class="section-game-settings-modal__inner">
+        <div class="section-game-settings-modal__container container">
+          <h2 class="section-game-settings-modal__title">Memory</h2>
+          <form id="gameSettings">
+            <div class="section-game-settings-modal__box modal-box">
+              <!-- Theme  -->
+              <fieldset class="modal-box__fieldset">
+                <legend class="modal-box__legend">Select theme</legend>
+                <div class="modal-box__options">
+                  <input
+                    class="modal-box__input visually-hidden"
+                    id="optionNumbers"
+                    type="radio"
+                    name="theme"
+                    required
+                    value="numbers"
+                    checked
+                  />
+                  <label class="modal-box__label button" for="optionNumbers"
+                    >Numbers</label
+                  >
+                  <input
+                    class="modal-box__input visually-hidden"
+                    id="optionIcons"
+                    type="radio"
+                    name="theme"
+                    required
+                    value="icons"
+                  />
+                  <label class="modal-box__label button" for="optionIcons"
+                    >Icons</label
+                  >
+                </div>
+              </fieldset>
+              <!-- Players  -->
+              <fieldset class="modal-box__fieldset">
+                <legend class="modal-box__legend">Number of players</legend>
+                <div class="modal-box__options modal-box__options--numbers">
+                  <input
+                    class="modal-box__input visually-hidden"
+                    id="optionPlayers_1"
+                    type="radio"
+                    name="numberOfPlayers"
+                    required
+                    value="1"
+                    checked
+                  />
+                  <label class="modal-box__label button" for="optionPlayers_1"
+                    >1</label
+                  >
+                  <input
+                    class="modal-box__input visually-hidden"
+                    id="optionPlayers_2"
+                    type="radio"
+                    name="numberOfPlayers"
+                    required
+                    value="2"
+                  />
+                  <label class="modal-box__label button" for="optionPlayers_2"
+                    >2</label
+                  >
+                  <input
+                    class="modal-box__input visually-hidden"
+                    id="optionPlayers_3"
+                    type="radio"
+                    name="numberOfPlayers"
+                    required
+                    value="3"
+                  />
+                  <label class="modal-box__label button" for="optionPlayers_3"
+                    >3</label
+                  >
+                  <input
+                    class="modal-box__input visually-hidden"
+                    id="optionPlayers_4"
+                    type="radio"
+                    name="numberOfPlayers"
+                    required
+                    value="4"
+                  />
+                  <label class="modal-box__label button" for="optionPlayers_4"
+                    >4</label
+                  >
+                </div>
+              </fieldset>
+              <!-- Size  -->
+              <fieldset class="modal-box__fieldset">
+                <legend class="modal-box__legend">Grid size</legend>
+                <div class="modal-box__options">
+                  <input
+                    class="modal-box__input visually-hidden"
+                    id="optionSize_4"
+                    type="radio"
+                    name="gridSize"
+                    required
+                    value="4"
+                    checked
+                  />
+                  <label class="modal-box__label button" for="optionSize_4"
+                    >4x4</label
+                  >
+                  <input
+                    class="modal-box__input visually-hidden"
+                    id="optionSize_6"
+                    type="radio"
+                    name="gridSize"
+                    required
+                    value="6"
+                  />
+                  <label class="modal-box__label button" for="optionSize_6"
+                    >6x6</label
+                  >
+                </div>
+              </fieldset>
+              <input
+                class="modal-box__submit-button button"
+                id="gameSettingsSubmitButton"
+                type="submit"
+                required
+                value="Start game"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <script src="js/main.js" type="module"></script>
   </body>

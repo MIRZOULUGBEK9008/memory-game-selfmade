@@ -7,7 +7,6 @@ const { loaderOpacity, loaderNone } = cssClassModifiers;
 const loader = (value = true) => {
   if (value) {
     elLoader.classList.remove(loaderOpacity, loaderNone);
-    elLoader.classList.remove();
   } else {
     elLoader.classList.add(loaderOpacity);
     elLoader.ontransitionend = () => {

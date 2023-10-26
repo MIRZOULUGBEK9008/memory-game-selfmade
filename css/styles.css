@@ -94,6 +94,8 @@ body {
   line-height: normal;
   padding: 0;
   margin: 0;
+  transition: opacity var(--transition-base), color var(--transition-base),
+    background-color var(--transition-base);
 }
 
 img {
@@ -132,6 +134,120 @@ img {
 /* MAIN-CONTENT  */
 .main-content {
   flex-grow: 1;
+}
+
+/* Buttons */
+.button {
+  display: block;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Game Settings Modal */
+.section-game-settings-modal {
+  background-color: var(--pine-tree);
+  transition: opacity var(--transition-base);
+}
+
+.section-game-settings-modal--opacity {
+  opacity: 0;
+}
+.section-game-settings-modal--none {
+  display: none;
+}
+
+.section-game-settings-modal__inner {
+  display: flex;
+  height: 100vh;
+}
+
+.section-game-settings-modal__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.section-game-settings-modal__title {
+  margin-top: 0;
+  margin-bottom: 7.8rem;
+  text-transform: lowercase;
+  font-size: 4rem;
+  color: var(--anti-flash-white);
+}
+
+.section-game-settings-modal__box {
+  width: 100vh;
+  max-width: 65.4rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--anti-flash-white);
+  border-radius: 2rem;
+  padding: 5.6rem;
+  font-weight: bold;
+}
+
+.modal-box__fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
+.modal-box__fieldset:not(:last-child) {
+  margin-bottom: 3.2rem;
+}
+
+.modal-box__submit-button {
+  padding: 15px;
+  border-radius: 3.5rem;
+  font-size: 3.2rem;
+  background-color: var(--goldenrod);
+  color: var(--anti-flash-white);
+  border: none;
+  transition: background-color var(--transition-base);
+}
+
+.modal-box__submit-button:hover {
+  background-color: var(--whitish-tangerine);
+}
+
+.modal-box__legend {
+  margin-bottom: 1.6rem;
+  font-size: 2rem;
+  color: var(--cadet-blue);
+}
+
+.modal-box__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(13.4rem, auto));
+  gap: 3rem;
+  width: 100%;
+}
+
+.modal-box__options--numbers {
+  grid-template-columns: repeat(4, minmax(6.2rem, auto));
+}
+
+.modal-box__label {
+  padding: 10px;
+  font-size: 2.6rem;
+  border-radius: 2.6rem;
+  background-color: var(--silver-lake-blue);
+  transition: background-color var(--transition-base);
+}
+
+.modal-box__label:hover {
+  background-color: var(--light-steel-blue);
+}
+
+.modal-box__input:checked + .modal-box__label {
+  background-color: var(--dark-blue-gray);
 }
 
 /* KEY-FRAMES */

@@ -4,19 +4,14 @@ const gameSettings = {
   numberOfPlayers: 1,
   gridSize: 4,
 
-  // Set settings
-  set setTheme(value) {
-    this.theme = value;
-  },
-  set setNumberOfPlayers(value) {
-    this.numberOfPlayers = value;
-  },
-  set setGridSize(value) {
-    this.gridSize = value;
+  // Update settings
+  set gameSettingsUpdater({ theme, numberOfPlayers, gridSize }) {
+    this.theme = theme;
+    this.numberOfPlayers = numberOfPlayers;
+    this.gridSize = gridSize;
   },
 
-  // Get final settings
-  get getFinalSettings() {
+  get finalGameSettings() {
     const { theme, numberOfPlayers, gridSize } = this;
     return { theme, numberOfPlayers, gridSize };
   },
