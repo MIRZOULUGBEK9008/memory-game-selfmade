@@ -18,6 +18,23 @@
 }
 
 /* FONT-FACE  */
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("../fonts/AtkinsonHyperlegible-Bold.woff2") format("woff2"),
+    url("../fonts/AtkinsonHyperlegible-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("../fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2"),
+    url("../fonts/AtkinsonHyperlegible-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* LOADER  */
 .loader-wrapper {
@@ -75,11 +92,11 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: var(--white);
-  color: var(--black);
-  font-family: "Arial", sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.5;
+  background-color: var(--anti-flash-white);
+  color: var(--anti-flash-white);
+  font-family: "Atkinson Hyperlegible", "Arial" sans-serif;
+  font-size: 4.4rem;
+  line-height: normal;
   padding: 0;
   margin: 0;
 }
@@ -91,13 +108,13 @@ img {
 
 /* FOCUS-STYLES  */
 *:focus {
-  outline: 0.3rem dashed var(--black);
+  outline: 0.3rem dashed var(--pine-tree);
   outline-offset: 0.3rem;
 }
 
 /* CONTAINER  */
 .container {
-  max-width: 120rem;
+  max-width: 115rem;
   width: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
