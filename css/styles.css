@@ -46,7 +46,7 @@
   height: 100%;
   z-index: 999;
   background-color: var(--pine-tree);
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-base);
 }
 
 .loader-wrapper--none {
