@@ -143,6 +143,17 @@ img {
   text-transform: capitalize;
   text-align: center;
   cursor: pointer;
+  transition: background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+.button--goldenrod {
+  background-color: var(--goldenrod);
+}
+
+.button--powder-blue {
+  background-color: var(--powder-blue);
+  color: var(--dark-blue-gray);
 }
 
 /* Game Settings Modal */
@@ -242,7 +253,6 @@ img {
   font-size: 2.6rem;
   border-radius: 2.6rem;
   background-color: var(--silver-lake-blue);
-  transition: background-color var(--transition-base);
 }
 
 .modal-box__label:hover {
