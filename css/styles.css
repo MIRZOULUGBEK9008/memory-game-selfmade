@@ -147,13 +147,13 @@ img {
 
 /* Game Settings Modal */
 .section-game-settings-modal {
-  background-color: var(--pine-tree);
   transition: opacity var(--transition-base);
 }
 
 .section-game-settings-modal--opacity {
   opacity: 0;
 }
+
 .section-game-settings-modal--none {
   display: none;
 }
@@ -161,6 +161,9 @@ img {
 .section-game-settings-modal__inner {
   display: flex;
   height: 100vh;
+  position: absolute;
+  inset: 0;
+  background-color: var(--pine-tree);
 }
 
 .section-game-settings-modal__container {
