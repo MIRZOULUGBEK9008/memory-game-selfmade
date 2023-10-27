@@ -5,7 +5,10 @@ const elLoader = document.getElementById("loader"),
     "gameSettingsSubmitButton"
   ),
   elGameRestartButton = document.getElementById("gameRestartButton"),
-  elGameNewGameButton = document.getElementById("gameNewGameButton");
+  elGameNewGameButton = document.getElementById("gameNewGameButton"),
+  elGameGrid = document.getElementById("gameGrid"),
+  elGameGridIcon = document.getElementById("gameGridIcon"),
+  elGameGridNumber = document.getElementById("gameGridNumber");
 
 export {
   elLoader,
@@ -14,4 +17,7 @@ export {
   elGameSettingsSubmitButton,
   elGameRestartButton,
   elGameNewGameButton,
+  elGameGrid,
+  elGameGridIcon,
+  elGameGridNumber,
 };

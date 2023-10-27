@@ -24,6 +24,15 @@
     <meta name="msapplication-TileColor" content="#e4fbfa" />
     <meta name="theme-color" content="#ffffff" />
 
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- Title  -->
     <title>Memory game</title>
 
@@ -193,6 +202,32 @@
         </div>
       </div>
     </header>
+
+    <!-- Section Game -->
+    <section class="section-game">
+      <div class="section-game__container container">
+        <ul class="section-game__grid game-grid" id="gameGrid"></ul>
+      </div>
+    </section>
+
+    <!-- ================= -->
+    <!-- Templates  -->
+    <!-- ================= -->
+    <!-- Icon  -->
+    <template id="gameGridIcon">
+      <li class="game-grid__item">
+        <button class="game-grid__button">
+          <img class="game-grid__icon" src="" alt="" id="icon" />
+        </button>
+      </li>
+    </template>
+
+    <!-- Number  -->
+    <template id="gameGridNumber">
+      <li class="game-grid__item">
+        <button class="game-grid__button" id="number"></button>
+      </li>
+    </template>
 
     <script type="module" src="js/main.js"></script>
   </body>
