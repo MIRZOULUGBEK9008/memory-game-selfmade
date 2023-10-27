@@ -12,8 +12,10 @@ const gameSettingsModal = (value = true) => {
     );
   } else {
     elGameSettingsModal.classList.add(gameSettingsModalOpacity);
-    elGameSettingsModal.ontransitionend = () => {
-      elGameSettingsModal.classList.add(gameSettingsModalNone);
+    elGameSettingsModal.ontransitionend = (e) => {
+      if (e.target === elGameSettingsModal) {
+        elGameSettingsModal.classList.add(gameSettingsModalNone);
+      }
     };
   }
 };
