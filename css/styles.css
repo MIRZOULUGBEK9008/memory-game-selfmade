@@ -144,16 +144,30 @@ img {
   text-align: center;
   cursor: pointer;
   transition: background-color var(--transition-base),
-    color var(--transition-base);
+    color var(--transition-base), opacity var(--transition-base);
+}
+
+.button:active {
+  opacity: 0.6;
 }
 
 .button--goldenrod {
   background-color: var(--goldenrod);
+  color: var(--anti-flash-white);
+}
+
+.button--goldenrod:hover {
+  background-color: var(--whitish-tangerine);
 }
 
 .button--powder-blue {
   background-color: var(--powder-blue);
   color: var(--dark-blue-gray);
+}
+
+.button--powder-blue:hover {
+  background-color: var(--light-steel-blue);
+  color: var(--anti-flash-white);
 }
 
 /* Game Settings Modal */
@@ -261,6 +275,50 @@ img {
 
 .modal-box__input:checked + .modal-box__label {
   background-color: var(--dark-blue-gray);
+}
+
+/* SITE-HEADER */
+.site-header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6.7rem;
+  padding-bottom: 6.7rem;
+}
+
+.site-header__logo {
+  display: block;
+  white-space: nowrap;
+  color: var(--pine-tree);
+  font-size: 4rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.logo__text {
+  transition: opacity var(--transition-base);
+}
+
+.site-header__logo:hover > .logo__text {
+  opacity: 0.8;
+}
+
+.site-header__logo:active > .logo__text {
+  opacity: 0.6;
+}
+
+.site-header__controller {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.site-header__button {
+  border: none;
+  border-radius: 2.6rem;
+  padding: 1.4rem 2.4rem;
+  font-size: 2rem;
 }
 
 /* KEY-FRAMES */
