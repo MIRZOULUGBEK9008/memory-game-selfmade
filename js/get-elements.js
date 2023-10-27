@@ -21,8 +21,12 @@ const getElements = ({ theme, gridSize }) => {
   }
 
   if (theme === "icons") {
-    return shuffleElements(icons);
-  } else return shuffleElements(numbers);
+    const result = shuffleElements(icons);
+    return { result, theme, gridSize };
+  } else {
+    const result = shuffleElements(numbers);
+    return { result, theme, gridSize };
+  }
 };
 
 export default getElements;

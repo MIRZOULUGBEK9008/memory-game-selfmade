@@ -9,7 +9,7 @@ import uiUpdater from "./ui-updater.js";
 // Loader
 window.onload = () => {
   loader(false);
-  gameSettingsModal(true);
+  gameSettingsModal(false);
 };
 
 // Get Game Settings
