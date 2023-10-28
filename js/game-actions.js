@@ -1,15 +1,13 @@
 import actions from "./actions.js";
+import activePlayerHandler from "./active-player-handler.js";
 import cssClassModifiers from "./css-class-modifiers.js";
 
+import gameSettings from "./game-settings.js";
+
 const { gameGridItemActive, gameGridItemPassed } = cssClassModifiers;
-const gameActions = (
-  {
-    target: {
-      dataset: { element },
-    },
-  },
-  target
-) => {
+
+const gameActions = ({ target }) => {
+  const elStatusCards = document.querySelectorAll(".game-status__card");
   target.parentElement.classList.add(gameGridItemActive);
   actions.push(target);
   const [first, second] = actions;
@@ -34,7 +32,9 @@ const gameActions = (
   }
 
   // Clean actions
-  if (actions.length === 2) actions.length = 0;
+  if (actions.length === 2) {
+    actions.length = 0;
+  }
 };
 
 export default gameActions;

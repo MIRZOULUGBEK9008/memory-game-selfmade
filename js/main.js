@@ -63,6 +63,6 @@ elGameNewGameButton.onclick = () => {
 // Game Actions
 document.onclick = (e) => {
   if (e.target.classList.contains("game-grid__button")) {
-    gameActions(e, e.target);
+    gameActions(e);
   }
 };
