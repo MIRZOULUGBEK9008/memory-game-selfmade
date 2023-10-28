@@ -1,8 +1,5 @@
 import actions from "./actions.js";
-import activePlayerHandler from "./active-player-handler.js";
 import cssClassModifiers from "./css-class-modifiers.js";
-
-import gameSettings from "./game-settings.js";
 
 const { gameGridItemActive, gameGridItemPassed } = cssClassModifiers;
 
