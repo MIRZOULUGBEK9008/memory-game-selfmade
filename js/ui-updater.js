@@ -9,7 +9,7 @@ import {
 } from "./html-elements.js";
 import playersCreater from "./players.js";
 
-const { gridSize_4, gridSize_6 } = cssClassModifiers;
+const { gridSize_4, gridSize_6, gameStatusCardActive } = cssClassModifiers;
 
 const uiCleaner = () => {
   elGameGrid.innerHTML = null;
@@ -48,10 +48,16 @@ const uiUpdater = ({ result: elements, theme, gridSize, numberOfPlayers }) => {
 
   // Status
   const playersOrPlayer = playersCreater(numberOfPlayers);
-  playersOrPlayer.forEach((player) => {
+  playersOrPlayer.forEach((player, index) => {
     const elCardClone = elGamePlayerStatusTemplate.content.cloneNode(true);
+    const elCard = elCardClone.getElementById("statusCard");
     const elDetail = elCardClone.getElementById("statusDescriptionDetail");
     const elTerm = elCardClone.getElementById("statusDescriptionTerm");
+
+    if (index === 0) {
+      elCard.classList.add(gameStatusCardActive);
+    }
+
     if (numberOfPlayers > 1) {
       const { playerName, playerScore } = player;
       elTerm.innerText = playerName;

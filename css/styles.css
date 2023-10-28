@@ -430,7 +430,7 @@ img {
 /* Game Status  */
 .section-status__container {
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
 }
 
 .section-status__status {
@@ -488,6 +488,19 @@ img {
   left: 50%;
   top: 0;
   transform: translate(-50%, -100%);
+}
+
+.game-status__card.game-status__card--active::after {
+  position: absolute;
+  white-space: nowrap;
+  left: 50%;
+  bottom: -2.3rem;
+  font-size: 1.3rem;
+  color: var(--pine-tree);
+  letter-spacing: 0.5rem;
+  content: "current turn";
+  text-transform: uppercase;
+  transform: translateX(-50%);
 }
 
 /* KEY-FRAMES */
