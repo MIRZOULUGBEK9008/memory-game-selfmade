@@ -7,8 +7,8 @@ const elLoader = document.getElementById("loader"),
   elGameRestartButton = document.getElementById("gameRestartButton"),
   elGameNewGameButton = document.getElementById("gameNewGameButton"),
   elGameGrid = document.getElementById("gameGrid"),
-  elGameGridIcon = document.getElementById("gameGridIcon"),
-  elGameGridNumber = document.getElementById("gameGridNumber");
+  elGameGridIconTemplate = document.getElementById("gameGridIconTemplate"),
+  elGameGridNumberTemplate = document.getElementById("gameGridNumberTemplate");
 
 export {
   elLoader,
@@ -18,6 +18,6 @@ export {
   elGameRestartButton,
   elGameNewGameButton,
   elGameGrid,
-  elGameGridIcon,
-  elGameGridNumber,
+  elGameGridIconTemplate,
+  elGameGridNumberTemplate,
 };

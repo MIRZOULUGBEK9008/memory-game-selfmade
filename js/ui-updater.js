@@ -1,23 +1,45 @@
+import cssClassModifiers from "./css-class-modifiers.js";
 import {
   elGameGrid,
-  elGameGridIcon,
-  elGameGridNumber,
+  elGameGridIconTemplate,
+  elGameGridNumberTemplate,
 } from "./html-elements.js";
 
+const { gridSize_4, gridSize_6 } = cssClassModifiers;
+const fragment = document.createDocumentFragment();
+
+const uiCleaner = () => {
+  elGameGrid.innerHTML = "";
+  elGameGrid.classList.remove(gridSize_4, gridSize_6);
+};
+
 const uiUpdater = ({ result: elements, theme, gridSize }) => {
+  uiCleaner();
+  if (gridSize === "6") {
+    elGameGrid.classList.add(gridSize_6);
+  } else elGameGrid.classList.add(gridSize_4);
+
   elements.forEach((element) => {
     if (theme === "icons") {
-      const elementClone = elGameGridIcon.content.cloneNode(true);
+      const elementClone = elGameGridIconTemplate.content.cloneNode(true);
+      const elGridItem = elementClone.getElementById("gridItem");
+      const elGridButton = elGridItem.querySelector(".game-grid__button");
       const icon = elementClone.getElementById("icon");
-      icon.alt = element;
-      icon.src = location.origin + `/img/icons/${icon.alt}.svg`;
-      elGameGrid.appendChild(elementClone);
-      console.log(icon.alt, icon);
+      icon.classList.add(`fa-${element}`);
+      elGridButton.dataset.element = element;
+      fragment.appendChild(elementClone);
     } else {
-      const elementClone = elGameGridNumber.content.cloneNode(true);
-      console.log(elementClone);
+      const elementClone = elGameGridNumberTemplate.content.cloneNode(true);
+      const elGridItem = elementClone.getElementById("gridItem");
+      const elGridButton = elGridItem.querySelector(".game-grid__button");
+      const number = elementClone.getElementById("number");
+      number.innerText = element;
+      elGridButton.dataset.element = element;
+      fragment.appendChild(elementClone);
     }
   });
+
+  elGameGrid.append(fragment);
 };
 
 export default uiUpdater;

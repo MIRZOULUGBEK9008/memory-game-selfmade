@@ -1,4 +1,5 @@
 import cssClassModifiers from "./css-class-modifiers.js";
+import gameActions from "./game-actions.js";
 import gameSettingsModal from "./game-settings-modal.js";
 import gameSettingsUpdater from "./game-settings-updater.js";
 import gameSettings from "./game-settings.js";
@@ -55,5 +56,12 @@ elGameNewGameButton.onclick = () => {
       gameSettingsModal(true);
       loader(false);
     }, timeout);
+  }
+};
+
+// Game Actions
+document.onclick = (e) => {
+  if (e.target.classList.contains("game-grid__button")) {
+    gameActions(e, e.target);
   }
 };

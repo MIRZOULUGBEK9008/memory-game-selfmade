@@ -4,15 +4,17 @@ const getElements = ({ theme, gridSize }) => {
   const icons = [];
   const numbers = [];
 
-  for (let i = 0; i < gridSize * (gridSize / 2); i++) {
-    let randomNumber = Math.floor(Math.random() * 100) + 1;
+  const size = Number(gridSize);
+
+  for (let i = 0; i < size * (size / 2); i++) {
+    let randomNumber = Math.floor(Math.random() * 99) + 1;
     let randomIndex = Math.floor(Math.random() * iconsNames.length);
 
     while (
       numbers.includes(randomNumber) ||
       icons.includes(iconsNames[randomIndex])
     ) {
-      randomNumber = Math.floor(Math.random() * 100) + 1;
+      randomNumber = Math.floor(Math.random() * 99) + 1;
       randomIndex = Math.floor(Math.random() * iconsNames.length);
     }
 

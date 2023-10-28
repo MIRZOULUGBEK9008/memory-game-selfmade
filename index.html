@@ -24,6 +24,9 @@
     <meta name="msapplication-TileColor" content="#e4fbfa" />
     <meta name="theme-color" content="#ffffff" />
 
+    <!-- Title  -->
+    <title>Memory game</title>
+
     <!-- Fontawesome -->
     <link
       rel="stylesheet"
@@ -32,9 +35,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <!-- Title  -->
-    <title>Memory game</title>
 
     <!-- Styles  -->
     <link rel="stylesheet" href="css/normalize.css" />
@@ -214,17 +214,17 @@
     <!-- Templates  -->
     <!-- ================= -->
     <!-- Icon  -->
-    <template id="gameGridIcon">
-      <li class="game-grid__item">
+    <template id="gameGridIconTemplate">
+      <li class="game-grid__item" id="gridItem">
         <button class="game-grid__button">
-          <img class="game-grid__icon" src="" alt="" id="icon" />
+          <span class="game-grid__icon fa-solid" id="icon" />
         </button>
       </li>
     </template>
 
     <!-- Number  -->
-    <template id="gameGridNumber">
-      <li class="game-grid__item">
+    <template id="gameGridNumberTemplate">
+      <li class="game-grid__item" id="gridItem">
         <button class="game-grid__button" id="number"></button>
       </li>
     </template>
