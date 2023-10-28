@@ -8,6 +8,7 @@ const cssClassModifiers = {
   gridSize_6: "section-game__grid--6x6",
   gameGridItemActive: "game-grid__item--active",
   gameGridItemPassed: "game-grid__item--passed",
+  gameStatusCardActive: "game-status__card--active",
 };
 
 export default cssClassModifiers;

@@ -203,12 +203,22 @@
       </div>
     </header>
 
-    <!-- Section Game -->
-    <section class="section-game">
-      <div class="section-game__container container">
-        <ul class="section-game__grid game-grid" id="gameGrid"></ul>
-      </div>
-    </section>
+    <main class="main-content">
+      <!-- Section Game -->
+      <section class="section-game">
+        <div class="section-game__container">
+          <h2 class="visually-hidden">Gaming zone</h2>
+          <ul class="section-game__grid game-grid" id="gameGrid"></ul>
+        </div>
+      </section>
+      <!-- Section Status -->
+      <section class="section-status">
+        <div class="section-status__container container">
+          <h2 class="visually-hidden">Status</h2>
+          <dl class="section-status__status game-status" id="gameStatus"></dl>
+        </div>
+      </section>
+    </main>
 
     <!-- ================= -->
     <!-- Templates  -->
@@ -227,6 +237,20 @@
       <li class="game-grid__item" id="gridItem">
         <button class="game-grid__button" id="number"></button>
       </li>
+    </template>
+
+    <!-- Status Template -->
+    <template id="gamePlayerStatusTemplate">
+      <div class="game-status__card">
+        <dt
+          class="game-status__description-term"
+          id="statusDescriptionTerm"
+        ></dt>
+        <dd
+          class="game-status__description-detail"
+          id="statusDescriptionDetail"
+        ></dd>
+      </div>
     </template>
 
     <script type="module" src="js/main.js"></script>

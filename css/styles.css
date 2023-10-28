@@ -134,6 +134,8 @@ img {
 
 /* MAIN-CONTENT  */
 .main-content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 
@@ -284,8 +286,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 6.7rem;
-  padding-bottom: 6.7rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .site-header__logo {
@@ -324,14 +326,18 @@ img {
 }
 
 /* Game grid */
+.section-game {
+  margin: auto;
+}
+
 .section-game__container {
   padding-top: 3rem;
-  padding-bottom: 9rem;
+  padding-bottom: 3rem;
 }
 
 .section-game__grid {
   display: grid;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -419,6 +425,69 @@ img {
 
 .game-grid__item.game-grid__item--active > .game-grid__button {
   background-color: var(--goldenrod);
+}
+
+/* Game Status  */
+.section-status__container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section-status__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  list-style: none;
+  gap: 30px;
+}
+
+.game-status__card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 25.5rem;
+  padding: 1.6rem 2.2rem;
+  text-transform: capitalize;
+  background-color: var(--powder-blue);
+  border-radius: 1rem;
+  font-weight: bold;
+  transition: color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.game-status__description-term {
+  font-size: 1.8rem;
+  color: var(--cadet-blue);
+}
+
+.game-status__description-detail {
+  margin: 0;
+  font-size: 3.2rem;
+  color: var(--dark-blue-gray);
+}
+
+.game-status__card.game-status__card--active {
+  color: var(--anti-flash-white);
+  background-color: var(--goldenrod);
+}
+
+.game-status__card.game-status__card--active * {
+  color: var(--anti-flash-white);
+}
+
+.game-status__card.game-status__card--active::before {
+  position: absolute;
+  content: "";
+  width: 3.9rem;
+  height: 4rem;
+  border-width: 2rem;
+  border-style: solid;
+  border-color: transparent transparent var(--goldenrod) transparent;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -100%);
 }
 
 /* KEY-FRAMES */

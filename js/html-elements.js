@@ -8,7 +8,11 @@ const elLoader = document.getElementById("loader"),
   elGameNewGameButton = document.getElementById("gameNewGameButton"),
   elGameGrid = document.getElementById("gameGrid"),
   elGameGridIconTemplate = document.getElementById("gameGridIconTemplate"),
-  elGameGridNumberTemplate = document.getElementById("gameGridNumberTemplate");
+  elGameGridNumberTemplate = document.getElementById("gameGridNumberTemplate"),
+  elGamePlayerStatusTemplate = document.getElementById(
+    "gamePlayerStatusTemplate"
+  ),
+  elGameStatus = document.getElementById("gameStatus");
 
 export {
   elLoader,
@@ -20,4 +24,6 @@ export {
   elGameGrid,
   elGameGridIconTemplate,
   elGameGridNumberTemplate,
+  elGameStatus,
+  elGamePlayerStatusTemplate,
 };

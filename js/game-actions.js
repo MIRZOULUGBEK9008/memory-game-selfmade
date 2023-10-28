@@ -1,7 +1,7 @@
+import actions from "./actions.js";
 import cssClassModifiers from "./css-class-modifiers.js";
 
 const { gameGridItemActive, gameGridItemPassed } = cssClassModifiers;
-const actions = [];
 const gameActions = (
   {
     target: {
@@ -12,7 +12,6 @@ const gameActions = (
 ) => {
   target.parentElement.classList.add(gameGridItemActive);
   actions.push(target);
-  console.log(actions);
   const [first, second] = actions;
   if (
     actions.length === 2 &&
@@ -31,10 +30,10 @@ const gameActions = (
           action.parentElement.classList.remove(gameGridItemActive);
         }
       }, 300);
-      console.log(action.classList);
     });
-    console.log("Teng emas");
   }
+
+  // Clean actions
   if (actions.length === 2) actions.length = 0;
 };
 

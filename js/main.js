@@ -41,6 +41,7 @@ elGameRestartButton.onclick = () => {
   if (result) {
     loader(true);
     setTimeout(() => {
+      elements = getElements(gameSettings.finalGameSettings);
       uiUpdater(elements);
       loader(false);
     }, timeout);

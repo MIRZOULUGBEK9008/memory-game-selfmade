@@ -1,19 +1,26 @@
+import actions from "./actions.js";
 import cssClassModifiers from "./css-class-modifiers.js";
 import {
   elGameGrid,
   elGameGridIconTemplate,
   elGameGridNumberTemplate,
+  elGamePlayerStatusTemplate,
+  elGameStatus,
 } from "./html-elements.js";
+import playersCreater from "./players.js";
 
 const { gridSize_4, gridSize_6 } = cssClassModifiers;
-const fragment = document.createDocumentFragment();
 
 const uiCleaner = () => {
-  elGameGrid.innerHTML = "";
+  elGameGrid.innerHTML = null;
+  elGameStatus.innerHTML = null;
   elGameGrid.classList.remove(gridSize_4, gridSize_6);
+  actions.length = 0;
 };
 
-const uiUpdater = ({ result: elements, theme, gridSize }) => {
+const uiUpdater = ({ result: elements, theme, gridSize, numberOfPlayers }) => {
+  const fragmentElements = document.createDocumentFragment();
+  const fragmentStatus = document.createDocumentFragment();
   uiCleaner();
   if (gridSize === "6") {
     elGameGrid.classList.add(gridSize_6);
@@ -27,7 +34,7 @@ const uiUpdater = ({ result: elements, theme, gridSize }) => {
       const icon = elementClone.getElementById("icon");
       icon.classList.add(`fa-${element}`);
       elGridButton.dataset.element = element;
-      fragment.appendChild(elementClone);
+      fragmentElements.appendChild(elementClone);
     } else {
       const elementClone = elGameGridNumberTemplate.content.cloneNode(true);
       const elGridItem = elementClone.getElementById("gridItem");
@@ -35,11 +42,33 @@ const uiUpdater = ({ result: elements, theme, gridSize }) => {
       const number = elementClone.getElementById("number");
       number.innerText = element;
       elGridButton.dataset.element = element;
-      fragment.appendChild(elementClone);
+      fragmentElements.appendChild(elementClone);
     }
   });
 
-  elGameGrid.append(fragment);
+  // Status
+  const playersOrPlayer = playersCreater(numberOfPlayers);
+  playersOrPlayer.forEach((player) => {
+    const elCardClone = elGamePlayerStatusTemplate.content.cloneNode(true);
+    const elDetail = elCardClone.getElementById("statusDescriptionDetail");
+    const elTerm = elCardClone.getElementById("statusDescriptionTerm");
+    if (numberOfPlayers > 1) {
+      const { playerName, playerScore } = player;
+      elTerm.innerText = playerName;
+      elDetail.innerText = playerScore;
+    } else {
+      const [key, value] = player;
+      elTerm.innerText = key;
+      elDetail.innerText = value;
+    }
+    fragmentStatus.appendChild(elCardClone);
+  });
+
+  // Add status to DOM
+  elGameStatus.append(fragmentStatus);
+
+  // Add element to DOM
+  elGameGrid.append(fragmentElements);
 };
 
 export default uiUpdater;
