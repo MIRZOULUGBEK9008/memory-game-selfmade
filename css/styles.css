@@ -469,8 +469,7 @@ img {
 }
 
 .game-status__card.game-status__card--active {
-  color: var(--anti-flash-white);
-  background-color: var(--goldenrod);
+  animation: active-card var(--transition-base) both;
 }
 
 .game-status__card.game-status__card--active * {
@@ -510,5 +509,16 @@ img {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes active-card {
+  0% {
+    background-color: var(--cadet-blue);
+    color: var(--dark-blue-gray);
+  }
+  100% {
+    background-color: var(--goldenrod);
+    color: var(--anti-flash-white);
   }
 }

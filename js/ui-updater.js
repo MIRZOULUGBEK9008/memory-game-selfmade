@@ -1,15 +1,14 @@
 import actions from "./actions.js";
+import activePlayerHandler from "./active-player-handler.js";
 import cssClassModifiers from "./css-class-modifiers.js";
 import {
   elGameGrid,
   elGameGridIconTemplate,
   elGameGridNumberTemplate,
-  elGamePlayerStatusTemplate,
   elGameStatus,
 } from "./html-elements.js";
-import playersCreater from "./players.js";
 
-const { gridSize_4, gridSize_6, gameStatusCardActive } = cssClassModifiers;
+const { gridSize_4, gridSize_6 } = cssClassModifiers;
 
 const uiCleaner = () => {
   elGameGrid.innerHTML = null;
@@ -20,7 +19,6 @@ const uiCleaner = () => {
 
 const uiUpdater = ({ result: elements, theme, gridSize, numberOfPlayers }) => {
   const fragmentElements = document.createDocumentFragment();
-  const fragmentStatus = document.createDocumentFragment();
   uiCleaner();
   if (gridSize === "6") {
     elGameGrid.classList.add(gridSize_6);
@@ -46,35 +44,11 @@ const uiUpdater = ({ result: elements, theme, gridSize, numberOfPlayers }) => {
     }
   });
 
-  // Status
-  const playersOrPlayer = playersCreater(numberOfPlayers);
-  playersOrPlayer.forEach((player, index) => {
-    const elCardClone = elGamePlayerStatusTemplate.content.cloneNode(true);
-    const elCard = elCardClone.getElementById("statusCard");
-    const elDetail = elCardClone.getElementById("statusDescriptionDetail");
-    const elTerm = elCardClone.getElementById("statusDescriptionTerm");
-
-    if (index === 0) {
-      elCard.classList.add(gameStatusCardActive);
-    }
-
-    if (numberOfPlayers > 1) {
-      const { playerName, playerScore } = player;
-      elTerm.innerText = playerName;
-      elDetail.innerText = playerScore;
-    } else {
-      const [key, value] = player;
-      elTerm.innerText = key;
-      elDetail.innerText = value;
-    }
-    fragmentStatus.appendChild(elCardClone);
-  });
-
-  // Add status to DOM
-  elGameStatus.append(fragmentStatus);
-
   // Add element to DOM
   elGameGrid.append(fragmentElements);
+
+  // Status
+  activePlayerHandler(numberOfPlayers, 1);
 };
 
 export default uiUpdater;

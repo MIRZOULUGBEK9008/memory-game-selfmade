@@ -1,10 +1,16 @@
 import actions from "./actions.js";
+import activePlayerHandler from "./active-player-handler.js";
 import cssClassModifiers from "./css-class-modifiers.js";
+import gameSettings from "./game-settings.js";
 
-const { gameGridItemActive, gameGridItemPassed } = cssClassModifiers;
+const { gameGridItemActive, gameGridItemPassed, timeoutAction } =
+  cssClassModifiers;
+
+let activePlayer = 1;
+
+// let numberOfPlayers = Number(gameSettings.finalGameSettings.numberOfPlayers);
 
 const gameActions = ({ target }) => {
-  const elStatusCards = document.querySelectorAll(".game-status__card");
   target.parentElement.classList.add(gameGridItemActive);
   actions.push(target);
   const [first, second] = actions;
@@ -16,7 +22,7 @@ const gameActions = ({ target }) => {
       setTimeout(() => {
         action.parentElement.classList.remove(gameGridItemActive);
         action.parentElement.classList.add(gameGridItemPassed);
-      }, 300);
+      }, timeoutAction);
     });
   } else if (actions.length === 2) {
     actions.forEach((action) => {
@@ -24,12 +30,24 @@ const gameActions = ({ target }) => {
         if (!action.parentElement.classList.contains(gameGridItemPassed)) {
           action.parentElement.classList.remove(gameGridItemActive);
         }
-      }, 300);
+      }, timeoutAction);
     });
   }
 
   // Clean actions
   if (actions.length === 2) {
+    if (
+      // Because of Bug ❌
+      activePlayer.toString() === gameSettings.finalGameSettings.numberOfPlayers
+    ) {
+      activePlayer = 1;
+    } else activePlayer++;
+    setTimeout(() => {
+      activePlayerHandler(
+        gameSettings.finalGameSettings.numberOfPlayers,
+        activePlayer
+      );
+    }, timeoutAction);
     actions.length = 0;
   }
 };

@@ -15,7 +15,7 @@ import uiUpdater from "./ui-updater.js";
 let elements;
 
 // CSS Modifiers
-const { timeout } = cssClassModifiers;
+const { timeoutLoading } = cssClassModifiers;
 
 // Loader
 window.onload = () => {
@@ -32,7 +32,7 @@ elGameSettings.onsubmit = (e) => {
   gameSettingsModal(false);
   setTimeout(() => {
     loader(false);
-  }, timeout);
+  }, timeoutLoading);
 };
 
 // Restart Game
@@ -44,7 +44,7 @@ elGameRestartButton.onclick = () => {
       elements = getElements(gameSettings.finalGameSettings);
       uiUpdater(elements);
       loader(false);
-    }, timeout);
+    }, timeoutLoading);
   }
 };
 
@@ -56,7 +56,7 @@ elGameNewGameButton.onclick = () => {
     setTimeout(() => {
       gameSettingsModal(true);
       loader(false);
-    }, timeout);
+    }, timeoutLoading);
   }
 };
 
