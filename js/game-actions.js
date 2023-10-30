@@ -1,14 +1,11 @@
 import actions from "./actions.js";
 import activePlayerHandler from "./active-player-handler.js";
+import activePlayer from "./active-player.js";
 import cssClassModifiers from "./css-class-modifiers.js";
 import gameSettings from "./game-settings.js";
 
 const { gameGridItemActive, gameGridItemPassed, timeoutAction } =
   cssClassModifiers;
-
-let activePlayer = 1;
-
-// let numberOfPlayers = Number(gameSettings.finalGameSettings.numberOfPlayers);
 
 const gameActions = ({ target }) => {
   target.parentElement.classList.add(gameGridItemActive);
@@ -37,15 +34,15 @@ const gameActions = ({ target }) => {
   // Clean actions
   if (actions.length === 2) {
     if (
-      // Because of Bug ❌
-      activePlayer.toString() === gameSettings.finalGameSettings.numberOfPlayers
+      activePlayer.player.toString() ===
+      gameSettings.finalGameSettings.numberOfPlayers
     ) {
-      activePlayer = 1;
-    } else activePlayer++;
+      activePlayer.setActive = 1;
+    } else activePlayer.setActive = activePlayer.player + 1;
     setTimeout(() => {
       activePlayerHandler(
         gameSettings.finalGameSettings.numberOfPlayers,
-        activePlayer
+        activePlayer.player
       );
     }, timeoutAction);
     actions.length = 0;
