@@ -3,6 +3,7 @@ import activePlayerHandler from "./active-player-handler.js";
 import activePlayer from "./active-player.js";
 import cssClassModifiers from "./css-class-modifiers.js";
 import gameSettings from "./game-settings.js";
+import playersCreater from "./players-creater.js";
 
 const { gameGridItemActive, gameGridItemPassed, timeoutAction } =
   cssClassModifiers;
@@ -37,9 +38,13 @@ const gameActions = ({ target }) => {
       activePlayer.setActive = 1;
     } else activePlayer.setActive = activePlayer.player + 1;
     setTimeout(() => {
+      const players = playersCreater(
+        gameSettings.finalGameSettings.numberOfPlayers
+      );
       activePlayerHandler(
         gameSettings.finalGameSettings.numberOfPlayers,
-        activePlayer.player
+        activePlayer.player,
+        players
       );
     }, timeoutAction);
     actions.length = 0;

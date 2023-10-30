@@ -1,6 +1,6 @@
 const playersCreater = (numberOfPlayers) => {
   const players = [];
-  if (numberOfPlayers > 1) {
+  if (numberOfPlayers !== "1") {
     for (let i = 1; i <= numberOfPlayers; i++) {
       const playerInfo = {
         playerName: `Player ${i}`,

@@ -10,6 +10,7 @@ import {
   elGameSettings,
 } from "./html-elements.js";
 import loader from "./loader.js";
+import playersCreater from "./players-creater.js";
 import uiUpdater from "./ui-updater.js";
 
 let elements;
@@ -27,8 +28,11 @@ elGameSettings.onsubmit = (e) => {
   e.preventDefault();
   loader(true);
   gameSettings.gameSettingsUpdater = gameSettingsUpdater();
+  const playersOrPlayer = playersCreater(
+    gameSettings.finalGameSettings.numberOfPlayers
+  );
   elements = getElements(gameSettings.finalGameSettings);
-  uiUpdater(elements);
+  uiUpdater(elements, playersOrPlayer);
   gameSettingsModal(false);
   setTimeout(() => {
     loader(false);

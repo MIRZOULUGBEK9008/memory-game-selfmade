@@ -1,14 +1,16 @@
 import cssClassModifiers from "./css-class-modifiers.js";
 import { elGamePlayerStatusTemplate, elGameStatus } from "./html-elements.js";
-import playersCreater from "./players-creater.js";
 
 const { gameStatusCardActive } = cssClassModifiers;
 
 const fragmentStatus = document.createDocumentFragment();
 
-const activePlayerHandler = (numberOfPlayers, activePlayer) => {
+const activePlayerHandler = (
+  numberOfPlayers,
+  activePlayer,
+  playersOrPlayer
+) => {
   elGameStatus.innerHTML = null;
-  const playersOrPlayer = playersCreater(numberOfPlayers);
   playersOrPlayer.forEach((player, index) => {
     const elCardClone = elGamePlayerStatusTemplate.content.cloneNode(true);
     const elCard = elCardClone.getElementById("statusCard");
