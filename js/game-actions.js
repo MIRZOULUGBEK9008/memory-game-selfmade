@@ -11,28 +11,25 @@ const gameActions = ({ target }) => {
   target.parentElement.classList.add(gameGridItemActive);
   actions.push(target);
   const [first, second] = actions;
-  if (
-    actions.length === 2 &&
-    first.dataset.element === second.dataset.element
-  ) {
-    actions.forEach((action) => {
-      setTimeout(() => {
-        action.parentElement.classList.remove(gameGridItemActive);
-        action.parentElement.classList.add(gameGridItemPassed);
-      }, timeoutAction);
-    });
-  } else if (actions.length === 2) {
-    actions.forEach((action) => {
-      setTimeout(() => {
-        if (!action.parentElement.classList.contains(gameGridItemPassed)) {
-          action.parentElement.classList.remove(gameGridItemActive);
-        }
-      }, timeoutAction);
-    });
-  }
 
   // Clean actions
   if (actions.length === 2) {
+    if (first.dataset.element === second.dataset.element) {
+      actions.forEach((action) => {
+        setTimeout(() => {
+          action.parentElement.classList.remove(gameGridItemActive);
+          action.parentElement.classList.add(gameGridItemPassed);
+        }, timeoutAction);
+      });
+    } else {
+      actions.forEach((action) => {
+        setTimeout(() => {
+          if (!action.parentElement.classList.contains(gameGridItemPassed)) {
+            action.parentElement.classList.remove(gameGridItemActive);
+          }
+        }, timeoutAction);
+      });
+    }
     if (
       activePlayer.player.toString() ===
       gameSettings.finalGameSettings.numberOfPlayers
