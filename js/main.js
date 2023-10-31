@@ -9,6 +9,7 @@ import {
   elGameSettings,
 } from "./html-elements.js";
 import loader from "./loader.js";
+import playerCreater from "./player-creater.js";
 import uiUpdater from "./ui-updater.js";
 
 // CSS Modifiers
@@ -29,6 +30,7 @@ elGameSettings.onsubmit = (e) => {
 
   const elements = getElements(gameSettings.finalGameSettings);
   uiUpdater(elements);
+  playerCreater(elements);
   gameSettingsModal(false);
   setTimeout(() => {
     loader(false);
