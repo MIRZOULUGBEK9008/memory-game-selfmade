@@ -1,6 +1,3 @@
-import actions from "./actions.js";
-import activePlayerHandler from "./active-player-handler.js";
-import activePlayer from "./active-player.js";
 import cssClassModifiers from "./css-class-modifiers.js";
 import {
   elGameGrid,
@@ -15,14 +12,9 @@ const uiCleaner = () => {
   elGameGrid.innerHTML = null;
   elGameStatus.innerHTML = null;
   elGameGrid.classList.remove(gridSize_4, gridSize_6);
-  actions.length = 0;
-  activePlayer.setActive = 1;
 };
 
-const uiUpdater = (
-  { result: elements, theme, gridSize, numberOfPlayers },
-  playersOrPlayer
-) => {
+const uiUpdater = ({ result: elements, theme, gridSize, numberOfPlayers }) => {
   const fragmentElements = document.createDocumentFragment();
   uiCleaner();
   if (gridSize === "6") {
@@ -51,9 +43,6 @@ const uiUpdater = (
 
   // Add element to DOM
   elGameGrid.append(fragmentElements);
-
-  // Status
-  activePlayerHandler(numberOfPlayers, activePlayer.player, playersOrPlayer);
 };
 
 export default uiUpdater;

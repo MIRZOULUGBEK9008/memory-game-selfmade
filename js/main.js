@@ -1,5 +1,4 @@
 import cssClassModifiers from "./css-class-modifiers.js";
-import gameActions from "./game-actions.js";
 import gameSettingsModal from "./game-settings-modal.js";
 import gameSettingsUpdater from "./game-settings-updater.js";
 import gameSettings from "./game-settings.js";
@@ -10,7 +9,6 @@ import {
   elGameSettings,
 } from "./html-elements.js";
 import loader from "./loader.js";
-import playersCreater from "./players-creater.js";
 import uiUpdater from "./ui-updater.js";
 
 let elements;
@@ -28,11 +26,8 @@ elGameSettings.onsubmit = (e) => {
   e.preventDefault();
   loader(true);
   gameSettings.gameSettingsUpdater = gameSettingsUpdater();
-  const playersOrPlayer = playersCreater(
-    gameSettings.finalGameSettings.numberOfPlayers
-  );
   elements = getElements(gameSettings.finalGameSettings);
-  uiUpdater(elements, playersOrPlayer);
+  uiUpdater(elements);
   gameSettingsModal(false);
   setTimeout(() => {
     loader(false);
@@ -61,12 +56,5 @@ elGameNewGameButton.onclick = () => {
       gameSettingsModal(true);
       loader(false);
     }, timeoutLoading);
-  }
-};
-
-// Game Actions
-document.onclick = (e) => {
-  if (e.target.classList.contains("game-grid__button")) {
-    gameActions(e);
   }
 };
