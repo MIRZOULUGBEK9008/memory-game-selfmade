@@ -29,8 +29,8 @@ elGameSettings.onsubmit = (e) => {
   gameSettings.gameSettingsUpdater = gameSettingsUpdater();
 
   const elements = getElements(gameSettings.finalGameSettings);
-  uiUpdater(elements);
-  playerCreater(elements);
+  const playersOrPlayer = playerCreater(elements);
+  uiUpdater(elements, playersOrPlayer);
   gameSettingsModal(false);
   setTimeout(() => {
     loader(false);
@@ -42,9 +42,10 @@ elGameRestartButton.onclick = () => {
   const result = confirm("Do you want to restart the game ?");
   if (result) {
     loader(true);
+    const elements = getElements(gameSettings.finalGameSettings);
+    const playersOrPlayer = playerCreater(elements);
+    uiUpdater(elements, playersOrPlayer);
     setTimeout(() => {
-      const elements = getElements(gameSettings.finalGameSettings);
-      uiUpdater(elements);
       loader(false);
     }, timeoutLoading);
   }
@@ -56,8 +57,8 @@ elGameNewGameButton.onclick = () => {
   if (result) {
     loader(true);
     setTimeout(() => {
-      gameSettingsModal(true);
       loader(false);
+      gameSettingsModal(true);
     }, timeoutLoading);
   }
 };

@@ -1,6 +1,6 @@
 import iconsNames from "./icons-names.js";
 import shuffleElements from "./shuffle-elements.js";
-const getElements = ({ theme, gridSize, numberOfPlayers }) => {
+const getElements = ({ theme, gridSize, numberOfPlayers, activePlayer }) => {
   const icons = [];
   const numbers = [];
 
@@ -24,10 +24,10 @@ const getElements = ({ theme, gridSize, numberOfPlayers }) => {
 
   if (theme === "icons") {
     const result = shuffleElements(icons);
-    return { result, theme, gridSize, numberOfPlayers };
+    return { result, theme, gridSize, numberOfPlayers, activePlayer };
   } else {
     const result = shuffleElements(numbers);
-    return { result, theme, gridSize, numberOfPlayers };
+    return { result, theme, gridSize, numberOfPlayers, activePlayer };
   }
 };
 

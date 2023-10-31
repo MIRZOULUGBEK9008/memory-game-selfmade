@@ -3,6 +3,7 @@ const gameSettings = {
   theme: "numbers",
   numberOfPlayers: "1",
   gridSize: "4",
+  activePlayer: "1",
 
   // Update settings
   set gameSettingsUpdater({ theme, numberOfPlayers, gridSize }) {
@@ -12,8 +13,8 @@ const gameSettings = {
   },
 
   get finalGameSettings() {
-    const { theme, numberOfPlayers, gridSize } = this;
-    return { theme, numberOfPlayers, gridSize };
+    const { theme, numberOfPlayers, gridSize, activePlayer } = this;
+    return { theme, numberOfPlayers, gridSize, activePlayer };
   },
 };
 
