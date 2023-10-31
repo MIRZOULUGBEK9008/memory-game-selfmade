@@ -1,4 +1,5 @@
 import cssClassModifiers from "./css-class-modifiers.js";
+import gameActions from "./game-actions.js";
 import {
   elGameGrid,
   elGameGridIconTemplate,
@@ -26,6 +27,7 @@ const uiUpdater = ({ result: elements, theme, gridSize }) => {
     };
 
     const elementClone = theme === "icons" ? icon : number;
+
     const elGridItem = elementClone.getElementById("gridItem");
     const elGridButton = elGridItem.querySelector(".game-grid__button");
 
@@ -38,7 +40,9 @@ const uiUpdater = ({ result: elements, theme, gridSize }) => {
     }
 
     elGridButton.dataset.element = element;
-    elGridButton.onclick = () => console.log(1);
+
+    elGridButton.onclick = ({ target }) => gameActions(target);
+
     fragmentElements.appendChild(elementClone);
   });
 

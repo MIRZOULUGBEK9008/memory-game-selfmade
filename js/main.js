@@ -11,8 +11,6 @@ import {
 import loader from "./loader.js";
 import uiUpdater from "./ui-updater.js";
 
-let elements;
-
 // CSS Modifiers
 const { timeoutLoading } = cssClassModifiers;
 
@@ -25,8 +23,11 @@ window.onload = () => {
 elGameSettings.onsubmit = (e) => {
   e.preventDefault();
   loader(true);
+
+  // Update settings
   gameSettings.gameSettingsUpdater = gameSettingsUpdater();
-  elements = getElements(gameSettings.finalGameSettings);
+
+  const elements = getElements(gameSettings.finalGameSettings);
   uiUpdater(elements);
   gameSettingsModal(false);
   setTimeout(() => {
@@ -40,7 +41,7 @@ elGameRestartButton.onclick = () => {
   if (result) {
     loader(true);
     setTimeout(() => {
-      elements = getElements(gameSettings.finalGameSettings);
+      const elements = getElements(gameSettings.finalGameSettings);
       uiUpdater(elements);
       loader(false);
     }, timeoutLoading);
