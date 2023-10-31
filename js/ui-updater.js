@@ -49,7 +49,7 @@ const uiUpdater = (
 
     elGridButton.dataset.element = element;
 
-    elGridButton.onclick = ({ target }) => gameActions(target);
+    elGridButton.onclick = ({ target }) => gameActions(target, numberOfPlayers);
 
     fragmentElements.appendChild(elElementClone);
   });
@@ -57,6 +57,7 @@ const uiUpdater = (
   // Players, player
   playersOrPlayer.forEach((element, index) => {
     const elCardClone = elGamePlayerStatusTemplate.content.cloneNode(true);
+    const elStatusCard = elCardClone.getElementById("statusCard");
     const elDescriptionTerm = elCardClone.getElementById(
       "statusDescriptionTerm"
     );
@@ -64,9 +65,10 @@ const uiUpdater = (
       "statusDescriptionDetail"
     );
 
+    const currentNumber = index + 1;
+
     if (numberOfPlayers !== "1") {
-      if (Number(activePlayer) === index + 1) {
-        const elStatusCard = elCardClone.getElementById("statusCard");
+      if (Number(activePlayer) === currentNumber) {
         elStatusCard.classList.add(gameStatusCardActive);
       }
       elDescriptionTerm.innerText = element.name;
@@ -76,6 +78,8 @@ const uiUpdater = (
       elDescriptionTerm.innerText = key;
       elDescriptionDetail.innerText = value;
     }
+
+    elStatusCard.dataset.playerNumber = currentNumber;
     fragmentPlayers.appendChild(elCardClone);
   });
   // Set grid size

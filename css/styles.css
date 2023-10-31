@@ -82,6 +82,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  user-select: none;
 }
 
 body {
@@ -425,6 +426,7 @@ img {
 
 .game-grid__item.game-grid__item--active > .game-grid__button {
   background-color: var(--goldenrod);
+  pointer-events: none;
 }
 
 /* Game Status  */
