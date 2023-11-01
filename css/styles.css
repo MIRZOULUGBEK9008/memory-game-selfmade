@@ -147,6 +147,8 @@ img {
   text-transform: capitalize;
   text-align: center;
   cursor: pointer;
+  padding: 0;
+  border: none;
   transition: background-color var(--transition-base),
     color var(--transition-base), opacity var(--transition-base);
 }
@@ -242,7 +244,6 @@ img {
   font-size: 3.2rem;
   background-color: var(--goldenrod);
   color: var(--anti-flash-white);
-  border: none;
   transition: background-color var(--transition-base);
 }
 
@@ -320,7 +321,6 @@ img {
 }
 
 .site-header__button {
-  border: none;
   border-radius: 2.6rem;
   padding: 1.4rem 2.4rem;
   font-size: 2rem;

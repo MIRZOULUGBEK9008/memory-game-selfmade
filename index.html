@@ -221,13 +221,26 @@
     </main>
 
     <!-- Game results -->
-    <section class="section-game-result">
+    <section class="section-game-result" id="gameResultModal">
       <div class="section-game-result__inner">
         <div class="section-game-result__container container">
           <div class="section-game-result__box game-result">
             <div class="game-result__content">
-              <h2 class="game-result__title"></h2>
-              <p class="game-result__description"></p>
+              <h2 class="game-result__title" id="gameResultTitle"></h2>
+              <p
+                class="game-result__description"
+                id="gameResultDescription"
+              ></p>
+            </div>
+            <dl class="game-result__players-list">
+              <div class="game-result__player">
+                <dt class="game-result__description-term"></dt>
+                <dd class="game-result__description-detail"></dd>
+              </div>
+            </dl>
+            <div class="game-result__actions">
+              <button class="button button--goldenrod">Restart</button>
+              <button class="button button--powder-blue">Setup new game</button>
             </div>
           </div>
         </div>
