@@ -1,4 +1,5 @@
 import cssClassModifiers from "./css-class-modifiers.js";
+import currentActions from "./current-actions.js";
 import gameActions from "./game-actions.js";
 import {
   elGameGrid,
@@ -14,6 +15,7 @@ const uiCleaner = () => {
   elGameGrid.innerHTML = null;
   elGameStatus.innerHTML = null;
   elGameGrid.classList.remove(gridSize_4, gridSize_6);
+  currentActions.length = 0;
 };
 
 const uiUpdater = (
