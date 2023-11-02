@@ -612,15 +612,15 @@ img {
   width: 50%;
 }
 
-.game-result__player.game-result__player--active {
+.game-result__player.game-result__player--winner {
   background-color: var(--pine-tree);
 }
 
-.game-result__player.game-result__player--active * {
+.game-result__player.game-result__player--winner * {
   color: var(--anti-flash-white);
 }
 
-.game-result__player.game-result__player--active
+.game-result__player.game-result__player--winner
   .game-result__description-term::after {
   display: block;
 }

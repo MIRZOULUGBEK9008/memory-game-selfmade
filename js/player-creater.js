@@ -8,7 +8,7 @@ const playerCreater = ({ numberOfPlayers }) => {
     }
     return players;
   } else {
-    const player = { time: 0, moves: 0 };
+    const player = { time: "--|--", moves: 0 };
     return Object.entries(player);
   }
 };

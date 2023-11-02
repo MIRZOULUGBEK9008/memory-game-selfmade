@@ -15,7 +15,6 @@ const elLoader = document.getElementById("loader"),
   elGameStatus = document.getElementById("gameStatus"),
   elGameResultTitle = document.getElementById("gameResultTitle"),
   elGameResultModal = document.getElementById("gameResultModal"),
-  elGameResultDescription = document.getElementById("gameResultDescription"),
   elGameResults = document.getElementById("gameResults"),
   elGameResultTemplate = document.getElementById("gameResultTemplate");
 
@@ -33,7 +32,6 @@ export {
   elGamePlayerStatusTemplate,
   elGameResultModal,
   elGameResultTitle,
-  elGameResultDescription,
   elGameResults,
   elGameResultTemplate,
 };

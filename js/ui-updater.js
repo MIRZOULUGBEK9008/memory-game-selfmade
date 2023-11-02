@@ -8,8 +8,10 @@ import {
   elGamePlayerStatusTemplate,
   elGameStatus,
 } from "./html-elements.js";
+import singlePlayerTimer from "./single-player-timer.js";
 
-const { gridSize_4, gridSize_6, gameStatusCardActive } = cssClassModifiers;
+const { gridSize_4, gridSize_6, gameStatusCardActive, timeoutLoading } =
+  cssClassModifiers;
 
 const uiCleaner = () => {
   elGameGrid.innerHTML = null;
@@ -27,6 +29,14 @@ const uiUpdater = (
 
   // Clean UI
   uiCleaner();
+
+  // Run timer
+  if (numberOfPlayers === "1") {
+    setTimeout(() => {
+      const result = confirm("Are you ready to start ?");
+      if (result) singlePlayerTimer(true);
+    }, 1500);
+  }
 
   // Elements
   elements.forEach((element) => {
@@ -75,13 +85,14 @@ const uiUpdater = (
       }
       elDescriptionTerm.innerText = element.name;
       elDescriptionDetail.innerText = element.pair;
+      elStatusCard.dataset.playerNumber = currentNumber;
     } else {
       const [key, value] = element;
       elDescriptionTerm.innerText = key;
       elDescriptionDetail.innerText = value;
+      elStatusCard.dataset[key] = value;
     }
 
-    elStatusCard.dataset.playerNumber = currentNumber;
     fragmentPlayers.appendChild(elCardClone);
   });
   // Set grid size

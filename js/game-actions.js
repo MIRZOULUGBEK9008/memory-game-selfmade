@@ -3,6 +3,7 @@ import currentActions from "./current-actions.js";
 import displayGameResult from "./display-game-result.js";
 import isGameEnd from "./is-game-end.js";
 import pairUpdater from "./pair-updater.js";
+import singlePlayerTimer from "./single-player-timer.js";
 
 const { gameGridItemActive, gameGridItemPassed, timeoutAction } =
   cssClassModifiers;
@@ -11,6 +12,22 @@ const gameActions = (target, numberOfPlayers) => {
   target.parentElement.classList.add(gameGridItemActive);
 
   currentActions.push(target);
+
+  // Run single player timer and calculate moves
+  if (numberOfPlayers === "1") {
+    const elMoves = document
+      .querySelector("[data-moves]")
+      .querySelector("#statusDescriptionDetail");
+    if (currentActions.length === 2) {
+      elMoves.innerText = Number(elMoves.innerText) + 1;
+    }
+    if (Number(elMoves.innerText) > 144) location.reload();
+
+    if (isGameEnd()) {
+      alert("Your time: ", singlePlayerTimer(false));
+      location.reload();
+    }
+  }
 
   if (currentActions.length === 2) {
     const [firstAction, secondAction] = currentActions;
@@ -21,7 +38,6 @@ const gameActions = (target, numberOfPlayers) => {
     currentActions.forEach((element) => {
       if (resultActions) {
         element.parentElement.classList.add(gameGridItemPassed);
-        // Is game end
       }
       setTimeout(() => {
         element.parentElement.classList.remove(gameGridItemActive);
@@ -34,7 +50,9 @@ const gameActions = (target, numberOfPlayers) => {
         else pairUpdater(true, false);
 
         // Is game end
-        isGameEnd() && displayGameResult(true);
+        if (isGameEnd()) {
+          setTimeout(() => displayGameResult(true), timeoutAction);
+        }
       }
     }, timeoutAction);
 

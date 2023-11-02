@@ -69,7 +69,3 @@ elGameNewGameButtons.forEach((newGameButton) => {
     }
   };
 });
-
-setTimeout(() => {
-  displayGameResult(true);
-}, 5000);
