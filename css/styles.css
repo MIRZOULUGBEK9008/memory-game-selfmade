@@ -13,6 +13,7 @@
   --light-steel-blue: #6395b8;
   --anti-flash-white: #fcfcfc;
   --powder-blue: #dfe7ec;
+  --overlay: rgb(0, 0, 0, 0.5);
 
   /* Transitions */
   --transition-base: 0.3s ease-in-out;
@@ -502,6 +503,126 @@ img {
   content: "current turn";
   text-transform: uppercase;
   transform: translateX(-50%);
+}
+
+/* Game Result  */
+.section-game-result {
+  display: none;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.section-game-result--opacity {
+  opacity: 1;
+}
+
+.section-game-result--block {
+  display: block;
+}
+
+.section-game-result__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.section-game-result__inner {
+  background-color: var(--overlay);
+  position: absolute;
+  inset: 0;
+  z-index: 777;
+}
+
+.section-game-result__box {
+  width: 100%;
+  max-width: 65rem;
+  background-color: var(--whitish-gray);
+  border-radius: 2rem;
+  padding: 5rem;
+}
+
+.game-result__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.game-result__title {
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+  font-size: 4.8rem;
+  color: var(--pine-tree);
+}
+
+.game-result__description {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--cadet-blue);
+}
+
+.game-result__players-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  gap: 1.6rem;
+  padding-bottom: 5rem;
+}
+
+.game-result__player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--powder-blue);
+  padding: 2.5rem 3.2rem;
+  border-radius: 1rem;
+  font-weight: bold;
+}
+
+.game-result__description-term {
+  display: flex;
+  font-size: 1.8rem;
+  color: var(--cadet-blue);
+}
+
+.game-result__description-term::after {
+  display: none;
+  content: "(Winner!)";
+  color: var(--anti-flash-white);
+  margin-left: 0.5rem;
+}
+
+.game-result__description-detail {
+  margin: 0;
+  font-size: 3.2rem;
+  color: var(--dark-blue-gray);
+}
+
+.game-result__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.game-result__button {
+  font-size: 2rem;
+  border-radius: 2.6rem;
+  padding: 1.4rem;
+  width: 50%;
+}
+
+.game-result__player.game-result__player--active {
+  background-color: var(--pine-tree);
+}
+
+.game-result__player.game-result__player--active * {
+  color: var(--anti-flash-white);
+}
+
+.game-result__player.game-result__player--active
+  .game-result__description-term::after {
+  display: block;
 }
 
 /* KEY-FRAMES */

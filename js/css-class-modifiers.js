@@ -8,6 +8,8 @@ const cssClassModifiers = {
   gameGridItemActive: "game-grid__item--active",
   gameGridItemPassed: "game-grid__item--passed",
   gameStatusCardActive: "game-status__card--active",
+  gameResultOpacity: "section-game-result--opacity",
+  gameResultBlock: "section-game-result--block",
   timeoutLoading: 1000,
   timeoutAction: 300,
 };

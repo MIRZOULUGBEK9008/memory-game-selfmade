@@ -1,5 +1,6 @@
 import cssClassModifiers from "./css-class-modifiers.js";
 import currentActions from "./current-actions.js";
+import displayGameResult from "./display-game-result.js";
 import isGameEnd from "./is-game-end.js";
 import pairUpdater from "./pair-updater.js";
 
@@ -33,7 +34,7 @@ const gameActions = (target, numberOfPlayers) => {
         else pairUpdater(true, false);
 
         // Is game end
-        isGameEnd() && console.log("Ha tugadi");
+        isGameEnd() && displayGameResult(true);
       }
     }, timeoutAction);
 

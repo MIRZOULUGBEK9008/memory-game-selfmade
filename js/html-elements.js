@@ -4,26 +4,36 @@ const elLoader = document.getElementById("loader"),
   elGameSettingsSubmitButton = document.getElementById(
     "gameSettingsSubmitButton"
   ),
-  elGameRestartButton = document.getElementById("gameRestartButton"),
-  elGameNewGameButton = document.getElementById("gameNewGameButton"),
+  elGameRestartButtons = document.querySelectorAll(".js-restart-game"),
+  elGameNewGameButtons = document.querySelectorAll(".js-new-game"),
   elGameGrid = document.getElementById("gameGrid"),
   elGameGridIconTemplate = document.getElementById("gameGridIconTemplate"),
   elGameGridNumberTemplate = document.getElementById("gameGridNumberTemplate"),
   elGamePlayerStatusTemplate = document.getElementById(
     "gamePlayerStatusTemplate"
   ),
-  elGameStatus = document.getElementById("gameStatus");
+  elGameStatus = document.getElementById("gameStatus"),
+  elGameResultTitle = document.getElementById("gameResultTitle"),
+  elGameResultModal = document.getElementById("gameResultModal"),
+  elGameResultDescription = document.getElementById("gameResultDescription"),
+  elGameResults = document.getElementById("gameResults"),
+  elGameResultTemplate = document.getElementById("gameResultTemplate");
 
 export {
   elLoader,
   elGameSettings,
   elGameSettingsModal,
   elGameSettingsSubmitButton,
-  elGameRestartButton,
-  elGameNewGameButton,
+  elGameRestartButtons,
+  elGameNewGameButtons,
   elGameGrid,
   elGameGridIconTemplate,
   elGameGridNumberTemplate,
   elGameStatus,
   elGamePlayerStatusTemplate,
+  elGameResultModal,
+  elGameResultTitle,
+  elGameResultDescription,
+  elGameResults,
+  elGameResultTemplate,
 };

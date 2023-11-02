@@ -186,15 +186,13 @@
 
         <div class="site-header__controller">
           <button
-            class="site-header__button button button--goldenrod"
-            id="gameRestartButton"
+            class="site-header__button button button--goldenrod js-restart-game"
             type="button"
           >
             Restart
           </button>
           <button
-            class="site-header__button button button--powder-blue"
-            id="gameNewGameButton"
+            class="site-header__button button button--powder-blue js-new-game"
             type="button"
           >
             New game
@@ -226,21 +224,25 @@
         <div class="section-game-result__container container">
           <div class="section-game-result__box game-result">
             <div class="game-result__content">
-              <h2 class="game-result__title" id="gameResultTitle"></h2>
-              <p
-                class="game-result__description"
-                id="gameResultDescription"
-              ></p>
+              <h2 class="game-result__title" id="gameResultTitle">
+                Player 3 Wins!
+              </h2>
+              <p class="game-result__description" id="gameResultDescription">
+                Game over! Here are the results…
+              </p>
             </div>
-            <dl class="game-result__players-list">
-              <div class="game-result__player">
-                <dt class="game-result__description-term"></dt>
-                <dd class="game-result__description-detail"></dd>
-              </div>
-            </dl>
+            <dl class="game-result__players-list" id="gameResults"></dl>
             <div class="game-result__actions">
-              <button class="button button--goldenrod">Restart</button>
-              <button class="button button--powder-blue">Setup new game</button>
+              <button
+                class="game-result__button button button--goldenrod js-restart-game"
+              >
+                Restart
+              </button>
+              <button
+                class="game-result__button button button--powder-blue js-new-game"
+              >
+                Setup new game
+              </button>
             </div>
           </div>
         </div>
@@ -266,7 +268,7 @@
       </li>
     </template>
 
-    <!-- Status Template -->
+    <!-- Status -->
     <template id="gamePlayerStatusTemplate">
       <div class="game-status__card js-game-status" id="statusCard">
         <dt
@@ -276,6 +278,20 @@
         <dd
           class="game-status__description-detail"
           id="statusDescriptionDetail"
+        ></dd>
+      </div>
+    </template>
+
+    <!-- Game result  -->
+    <template id="gameResultTemplate">
+      <div class="game-result__player" id="gamePlayerResult">
+        <dt
+          class="game-result__description-term"
+          id="gamePlayerResultDescriptionTerm"
+        ></dt>
+        <dd
+          class="game-result__description-detail"
+          id="gamePlayerResultDescriptionDetail"
         ></dd>
       </div>
     </template>
